@@ -1,15 +1,17 @@
 package com.generation.Repository;
 
+
+
 import java.util.List;
 
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.query.Param;
 
-import com.generation.model.CategoriaModel;
+import com.generation.model.Categoria;
 
-     @Repository
-	public interface CategoriaRepository extends JpaRepository<CategoriaModel, Long> {
-			
-			public List<CategoriaModel> findAllByTipoContainingIgnoreCase(String tipo);
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
+	
+	public List<Categoria> findAllByTipoContainingIgnoreCase(@Param("tipo") String tipo);
 
 }
